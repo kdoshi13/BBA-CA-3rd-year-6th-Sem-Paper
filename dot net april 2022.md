@@ -583,6 +583,36 @@ e)
 Write a program in C# .net to reverse given number.
 =)
 ```vb
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int number = int.Parse(Console.ReadLine());
+
+        int reversedNumber = ReverseNumber(number);
+
+        Console.WriteLine("Reversed number: " + reversedNumber);
+
+        Console.ReadLine();
+    }
+
+    static int ReverseNumber(int number)
+    {
+        int reversedNumber = 0;
+
+        while (number != 0)
+        {
+            int digit = number % 10;
+            reversedNumber = reversedNumber * 10 + digit;
+            number /= 10;
+        }
+
+        return reversedNumber;
+    }
+}
 
 ```
 Q4) Attempt any Four of the following :
@@ -590,11 +620,45 @@ Q4) Attempt any Four of the following :
 a)
 What is command object?
 =)
+In the .NET Framework, the Command object is a part of the ADO.NET library and represents a parameterized SQL statement or stored procedure that is executed against a database. It plays a crucial role in interacting with a database and performing various database operations such as inserting, updating, deleting, or retrieving data.
 
+The Command object provides methods and properties to define and execute a command against the database. It allows you to pass parameters, specify the command text, set the command type, and handle the execution and retrieval of data. Some commonly used properties and methods of the Command object include:
+
+1. CommandText: Gets or sets the SQL statement or stored procedure to be executed.
+
+2. CommandType: Gets or sets the type of command to be executed. It can be set to CommandType.Text for SQL statements or CommandType.StoredProcedure for stored procedures.
+
+3. Parameters: Gets the collection of parameters associated with the Command object. Parameters can be added to the collection to pass values to the SQL statement or stored procedure.
+
+4. ExecuteNonQuery: Executes a command that does not return any data, such as an INSERT, UPDATE, or DELETE statement. It returns the number of affected rows.
+
+5. ExecuteScalar: Executes a command that returns a single value, typically used with aggregate functions like COUNT, SUM, or MAX.
+
+6. ExecuteReader: Executes a command that retrieves data and returns a DataReader object. The DataReader provides a forward-only, read-only stream of data from the database.
+
+The Command object acts as a bridge between your application and the database. It helps in executing parameterized SQL statements or stored procedures, providing a secure and efficient way to interact with databases. By using the Command object, you can pass input parameters, execute database commands, and retrieve results or affected rows from the database.
 b)
 Explain Event handing in ASP .net?
 =)
+Event handling in ASP.NET allows you to respond to user actions or system events that occur during the execution of a web application. Events are actions or occurrences that can trigger code execution and allow you to perform specific tasks in response.
 
+In ASP.NET, events can be categorized into two types:
+
+1. Server-Side Events: These events occur on the server-side and are raised by server controls or the ASP.NET framework itself. Server-side events include button clicks, page load, dropdown list selection changes, form submissions, and more.
+
+2. Client-Side Events: These events occur on the client-side, usually within the user's web browser. They are raised by HTML elements or JavaScript code embedded in the web page. Examples of client-side events are mouse clicks, key presses, form submissions, and AJAX callbacks.
+
+To handle events in ASP.NET, you typically follow these steps:
+
+1. Attach an event handler: For server-side events, you attach an event handler to a server control's event. This is done either declaratively in the markup (.aspx) file or programmatically in the code-behind (.aspx.cs) file. The event handler is a method that contains the code to be executed when the event occurs.
+
+2. Define the event handler method: The event handler method is responsible for executing the desired logic when the event is triggered. It can access and manipulate server controls, retrieve form data, interact with databases, or perform any other required operations.
+
+3. Write the event handling code: Inside the event handler method, you write the code that responds to the event. This can include performing calculations, updating the UI, validating input, saving data, or any other action specific to the event.
+
+4. Execute the event handling code: When the event is triggered, the associated event handler method is automatically executed. The event handler has access to the event arguments, which provide information about the event, such as the source control or the user's input.
+
+By handling events in ASP.NET, you can create interactive and responsive web applications that respond to user actions. Event handling allows you to write code that is executed in response to specific events, enabling you to control the flow and behavior of your application.
 c)
 Write a C# program to swap two number.
 =)
